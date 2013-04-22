@@ -15,7 +15,7 @@ def git_branch():
         return ''
     if out_str == '':
         return ''
-    print branch_list
+    branch_list = out_str.split('\n')
     branch_name = [x for x in branch_list if len(x) > 0 and x[0] == '*'][0][2:]
     return branch_name
 
