@@ -1,0 +1,142 @@
+* introduction
+
+I installed Arch Linux on a Macbook Air (3.2) in August of 2012.  The reference
+material is often outdated, but still helpful.
+
+These instructions are for an install with only Arch Linux (no dual-booting).
+
+* references
+
+- http://allanmcrae.com/2010/04/installing-arch-on-a-macbook-pro-5-5/
+
+Suggests legacy BIOS mode.  Worked for me.
+
+- http://allanmcrae.com/2012/04/installing-arch-on-a-macbook-pro-8-1/
+
+Suggests legacy BIOS mode.  Worked for me.
+
+- http://www.dm9.se/?p=398
+
+Instructions for EFI boot did not work for me.  However, this page suggests
+using rEFIt on a usb key in order to boot the Arch Linux install environment
+from a second USB key.  I could not boot off of the Arch Linux usb key on it's
+own.
+
+- https://wiki.archlinux.org/index.php/MacBook
+
+* install
+
+** requirements
+
+- mac os x install usb stick
+- two usb keys
+  - one for rEFIt
+  - one for Arch Linux
+- mbair 3.2
+
+- http://refit.sourceforge.net/
+- http://www.archlinux.org/download/
+
+** steps
+
+- Use =dd= to write the iso disk images for rEFIt and Arch Linux install to the
+  usb sticks.  It is a good idea to verify the writes with a checksum.
+
+- Plug both usb keys in to the mbair.  Reboot while holding the =alt/option=
+  key.  Use the selector to get into the rEFIt boot menu then select the Arch
+  Linux installer.  The names are strange and this process might require some
+  trial and error.  If things are not working, boot from the Mac OS X install
+  key and reformat the main disk.
+
+- Once booted into the Arch Linux install environment, use =parted= to set the
+  partition table format to =msdos=.
+
+- Now follow the instructions from:
+  - https://wiki.archlinux.org/index.php/Installation_Guide
+  - https://wiki.archlinux.org/index.php/Beginners%27_Guide
+
+- Make sure to install all of the appropriate wifi packages before rebooting.
+
+- Install the =grub-bios= package and follow the appropiate steps to set up the
+  boot loader.
+
+- After the install is completed, boot from the Mac OS X install usb key and
+  run:
+
+#+begin_src sh
+bless --device /dev/disk0s2 --setBoot --legacy --verbose
+#+end_src
+
+I believe that =/dev/disk0s2= should point to your =/boot= partition.  This
+will speed up the boot process.
+
+* video
+
+Both =nvidia= and =xf86-video-nouveau= drivers work.
+
+* trackpad
+
+I tried [[http://www.archlinux.org/packages/extra/x86_64/xf86-input-synaptics/][xf86-input-synaptic]], however it did not work so well.
+
+The default settings for [[https://aur.archlinux.org/packages.php?ID=48505][xf86-input-mtrack-git]] from AUR seem to work
+better, but may still require some configuration.
+
+* suspend to ram
+
+Packages:
+- =pm-utils=
+- =acpi=
+- =acpid=
+
+Once the above packages are installed, the following command will put the
+laptop to sleep:
+#+begin_src sh
+# pm-suspend
+#+end_src
+
+To sleep on lid close:
+- add =acpid= to the =DAEMONS= list in =/etc/rc.conf=
+- modify =/etc/acpi/handler.sh= with the following:
+#+begin_src sh
+    button/lid)
+        case "$3" in
+            close)
+                logger 'LID closed'
+		if grep -q closed /proc/acpi/button/lid/LID0/state
+		then pm-suspend
+		fi
+                ;;
+#+end_src
+* screen brightness
+
+I use =xfce4-power-manager=.  The screen brightness keys (F1-F2) work.  The
+tool also provides a nice battery monitor.
+
+* audio
+
+Packages:
+- =alsa-utils=
+
+The tool =alsamixer= may be used to control the volume.  
+
+Things to try:
+- =volwheel=
+- =pnmixer= from AUR
+
+I use xmonand keys to set the master volume.  I have not figured out how things
+interact with PulseAudio.
+
+=pnmixer= seems to work rather well, however it's interaction with xmonad is
+not great.  More work on this later.
+
+* wifi
+
+Easy commands:
+- to search for available networks: =wifi-menu=
+- to select from profiles: =netcfg-menu=
+
+=netcfg=:
+- to take all profiles down =netcfg -a=
+- to start a profile =netcfg [profile]=
+- to reconnect a profile =netcfg -r [profile]=
+  this command will take down the current active profile

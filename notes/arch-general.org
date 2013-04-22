@@ -1,0 +1,199 @@
+* sudo
+
+** To make =sudo= usable by users.
+
+Edit the =sudoers= file with emacs through =visudo=:
+#+begin_src sh
+EDITOR="emacs -nw" visudo
+#+end_src
+
+Uncomment the line:
+#+begin_example
+%wheel      ALL=(ALL) ALL
+#+end_example
+
+Add main user to group wheel:
+#+begin_src sh
+gpasswd -a [user] wheel
+#+end_src
+
+** To grant network access to netcfg without password
+
+#+begin_example
+%network ALL=(ALL)NOPASSWD: /usr/bin/netcfg
+#+end_example
+
+* pacman mirror lists
+
+It is a good idea to update the pacman mirror list every so often.  This is
+possible with a tool called =reflector=.
+
+Packages:
+- =reflector=
+
+Use:
+#+begin_example
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+reflector -c 'United States' -l 7 --sort rate --save /etc/pacman.d/mirrorlist
+#+end_example
+
+* packer
+
+To install =packer=
+
+#+begin_src sh
+mkdir ~/builds
+cd ~/builds
+wget https://aur.archlinux.org/packages/pa/packer/packer.tar.gz
+tar -xzvf packer.tar.gz
+rm packer.tar.gz
+cd packer
+makepkg -s
+sudo pacman -U packer-20120820-1-any.pkg.tar.xz
+#+end_src
+
+* xmonad & gui stuff
+
+packages:
+- xmonad
+- xmonad-contrib
+- dmenu
+- xmobar
+- rxvt-unicode
+- urxvt-perls-git
+- trayer
+- slock
+
+link:
+| target                      | link name     |
+| ~/Dropbox/config/xsession   | ~/.xsession   |
+| ~/Dropbox/config/Xresources | ~/.Xresources |
+| ~/Dropbox/config/mobarrc    | ~/.xmobarrc   |
+| ~/Dropbox/config/xmonad     | ~/.xmonad     |
+
+* dropbox
+
+- in AUR
+- these instructions use packer
+
+#+begin_src sh
+sudo packer -S dropbox dropbox-cli
+#+end_src
+
+- run from gui to enter account info
+- more instruction on how to start with xmonand coming up
+
+- dropbox-cli allows one to start dropbox from the command line with 
+#+begin_src 
+dropbox start &
+#+end_src
+
+* flash
+
+The adobe flash player may be installed with the package =flashplugin=
+
+* xdm & start up
+
+packages:
+- xorg-xdm
+- xdm-archlinux
+
+edit =/etc/inittab= and change the default run level:
+#+begin_example
+# Boot to console
+#id:3:initdefault:
+# Boot to X11
+id:5:initdefault:
+#+end_example
+
+uncomment and modify the line:
+#+begin_example
+x:5:respawn:/usr/bin/xdm -nodaemon -config /etc/X11/xdm/archlinux/xdm-config
+#+end_example
+  
+* usb automount
+
+- install package =ldm= from AUR.
+- add =ldm= to =DAEMONS= list in =/etc/rc.d=
+
+USB disks will now auto mount.  Unmount with =sudo pumount= or =sudo umount=
+
+For convenience I added the following line to =/etc/sudoers=:
+
+#+begin_example
+%storage ALL=(ALL)NOPASSWD: /usr/bin/pmount
+%storage ALL=(ALL)NOPASSWD: /usr/bin/pumount /usr/bin/pumount
+#+end_example
+
+References:
+- https://github.com/LemonBoy/ldm
+- http://aur.archlinux.org/packages.php?ID=60088
+- http://aur.archlinux.org/packages.php?ID=52272
+* backup
+
+#+BEGIN_EXAMPLE
+rsync -arhP --delete ~ /media/nwh-backup
+#+END_EXAMPLE
+
+-a : archive mode
+-r : recurse into directories
+-h : human readable
+-P : progress bar (sort of)
+--delete : delete files in target that have been removed from source
+
+* trash
+
+Use the AUR package =trash-cli=.
+
+Alias commands:
+  alias tp='trash-put'
+
+References:
+- https://github.com/andreafrancia/trash-cli
+- https://aur.archlinux.org/packages.php?ID=19076
+* default applications
+
+To set evince as the default pdf reader, run the following from the command line:
+
+#+BEGIN_SRC sh
+xdg-mime default evince.desktop application/pdf
+#+END_SRC
+
+Reference:
+https://wiki.archlinux.org/index.php/Xdg-open
+https://wiki.archlinux.org/index.php/Default_Applications
+
+* gnome-terminal colors
+
+The gnome-settings thing seems messed up unless you are running from a full
+fledged gnome environment.  Trying to set gnome-terminal settings using
+gconftool-2 from the command line when running xmonad does not seem to work
+very well.  I had to boot up gnome proper, make the settings changes, then
+come back to xmonad.  Oh well.
+
+* eclipse memory
+
+In file =/usr/share/eclipse/eclipse.ini= change the last 2 lines to:
+#+BEGIN_EXAMPLE
+-Xms512m
+-Xmx2048m
+#+END_EXAMPLE
+
+- =-Xms= refers to the least amount of memory allocated
+- =-Xmx= refers to the max amount of memory allocated
+
+* X11 forwarding
+
+Reference:
+  https://wiki.archlinux.org/index.php/Secure_Shell#X11_forwarding
+
+On arch ssh host:
+- Install xorg-xauth from the official repositories onto the server.
+- Enable the AllowTcpForwarding option in sshd_config on the server.
+- Enable the X11Forwarding option in sshd_config on the server.
+- Set the X11DisplayOffset option in sshd_config on the server to 10.
+- Enable the X11UseLocalhost option in sshd_config on the server. 
+
+On arch ssh client:
+- Enable the ForwardX11 option in ssh_config on the client.
+- Enable the ForwardX11Trusted if gui is drawing badly. 

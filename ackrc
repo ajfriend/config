@@ -1,0 +1,3 @@
+# add cuda files to ack
+
+--type-set=cuda=.cu

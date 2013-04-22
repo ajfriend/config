@@ -1,0 +1,21 @@
+[user]
+  name = Nick Henderson
+  email = nwh@stanford.edu
+
+[core]
+  excludesfile = /home/nwh/Dropbox/config/gitignore
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
+
+[credential]
+  helper = cache --timeout=360000
+
+# this is used in git 1.8?
+#[push]
+#  default = simple
