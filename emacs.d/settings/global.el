@@ -18,7 +18,7 @@
 (set-default 'indicate-empty-lines t)
 
 ;; Line-wrapping
-(set-default 'fill-column 79)
+(set-default 'fill-column 80)
 (setq-default auto-fill-function 'do-auto-fill)
 
 ;; Prevent the annoying beep on errors
