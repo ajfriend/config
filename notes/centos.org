@@ -209,4 +209,12 @@ Reference:
 sudo rpm -Uvh http://mirror.cc.columbia.edu/pub/linux/epel/6/i386/epel-release-6-8.noarch.rpm
 #+END_SRC
 
-Note: may have to update the mirror
+Notes:
+- may have to update the mirror
+- there are some conflicts with repoforge, which I disabled
+
+* LibreOffice
+
+- download from http://www.libreoffice.org/.
+- cd to the proper directory
+- use =sudo yum install *.rpm= to install
