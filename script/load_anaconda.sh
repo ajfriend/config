@@ -1,4 +1,12 @@
 # load_anaconda.sh -- source to add anacoda to bash path
+#
+# Usage: this script should be sourced from your active shell
+#
+#  $ source load_anaconda.sh
+#
+# Note it is useful to provide a symbolic link to the script from ~/bin when
+# ~/bin is on the shell PATH. 
+#
 
 if [ -d ~/anaconda/bin ]
 then
