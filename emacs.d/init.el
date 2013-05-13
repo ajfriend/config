@@ -7,6 +7,10 @@
 (setq custom-file "~/.emacs.d/settings/custom.el")
 (load custom-file 'noerror)
 
+;; load imports
+(load "import/light-symbol")
+
+;; load settings
 (load "settings/defun")
 (load "settings/env")
 (load "settings/global")
@@ -27,7 +31,7 @@
 (load "settings/magit-load")
 (load "settings/ack-load")
 (load "settings/programming")
-(load "import/light-symbol")
+(load "settings/dired-settings")
 
 ;; Enable a backtrace when problems occur
 ;; (setq debug-on-error t)

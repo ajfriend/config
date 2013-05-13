@@ -35,7 +35,7 @@
   (global-hl-line-mode t)
 )
 
-;; Don't truncate lines
+;; line truncation
 (setq truncate-lines t)
 (setq truncate-partial-width-windows nil)
 
