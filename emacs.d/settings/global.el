@@ -43,7 +43,7 @@
 ;; (server-start)
 
 ;; Trailing whitespace is unnecessary
-;(add-hook 'before-save-hook (lambda () (delete-trailing-whitespace)))
+(add-hook 'before-save-hook (lambda () (delete-trailing-whitespace)))
 
 ;; allow downcase-region command 
 (put 'downcase-region 'disabled nil)
