@@ -32,6 +32,7 @@
 (load "settings/ack-load")
 (load "settings/programming")
 (load "settings/dired-settings")
+(load "settings/python-setup")
 
 ;; Enable a backtrace when problems occur
 ;; (setq debug-on-error t)
