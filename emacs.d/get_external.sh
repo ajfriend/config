@@ -29,3 +29,10 @@ then
   cd ${EXT_DIR}
   git clone git://github.com/sellout/emacs-color-theme-solarized.git
 fi
+
+# get markdown-mode
+if [ ! -d ${EXT_DIR}/markdown-mode ]
+then
+  cd ${EXT_DIR}
+  git clone git://jblevins.org/git/markdown-mode.git
+fi
