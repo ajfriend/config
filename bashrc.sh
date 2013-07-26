@@ -1,14 +1,11 @@
 ## This file is sourced by all *interactive* bash shells on startup.  This
 ## file *should generate no output* or it will break the scp and rcp commands.
-############################################################
 
 if [ -e /etc/bashrc ] ; then
   . /etc/bashrc
 fi
 
-############################################################
 ## PATH
-############################################################
 
 function conditionally_prefix_path {
   local dir=$1
@@ -17,12 +14,6 @@ function conditionally_prefix_path {
   fi
 }
 
-#conditionally_prefix_path /usr/local/bin
-#conditionally_prefix_path /usr/local/sbin
-#conditionally_prefix_path /usr/local/share/python
-#conditionally_prefix_path /usr/local/share/npm/bin
-#conditionally_prefix_path /usr/local/mysql/bin
-#conditionally_prefix_path /usr/texbin
 #conditionally_prefix_path /opt/matlab/r2011b/bin
 #conditionally_prefix_path /Applications/MATLAB_R2011a_Student.app/bin
 #conditionally_prefix_path ~/.cabal/bin
@@ -31,9 +22,7 @@ conditionally_prefix_path ~/bin
 
 #PATH=.:./bin:${PATH}
 
-############################################################
 ## Terminal behavior
-############################################################
 
 # Change the window title of X terminals
 case $TERM in
@@ -68,9 +57,7 @@ if [ -n "$BASH" ]; then
   export PS1='$(ps1_exit_status)\[\033[32m\]\n[\w] $(git_prompt)\n\[\033[31m\][\u@\h]\$ \[\033[00m\]'
 fi
 
-############################################################
 ## Optional shell behavior
-############################################################
 
 shopt -s cdspell
 shopt -s extglob
@@ -79,9 +66,7 @@ shopt -s checkwinsize
 export PAGER="less"
 export EDITOR="emacs -nw"
 
-############################################################
 ## History
-############################################################
 
 # When you exit a shell, the history from that session is appended to
 # ~/.bash_history.  Without this, you might very well lose the history of entire
@@ -94,9 +79,7 @@ export HISTCONTROL=erasedups
 # increase the default size from only 1,000 items
 export HISTSIZE=10000
 
-############################################################
 ## List
-############################################################
 
 # if [[ `uname` == 'Darwin' && ! -n $EMACS  ]]; then
 #   alias ls="ls -G"
@@ -110,20 +93,16 @@ export HISTSIZE=10000
 # fi
 
 #alias l="ls"
-#alias ll="ls -lh"
-#alias la="ls -a"
+alias ll="ls -lh"
+alias la="ls -alh"
 #alias lal="ls -alh"
 
-############################################################
 ## OS X .DS_Store files
-############################################################
 
 # Get rid of those pesky .DS_Store files recursively
 alias dstore-clean='find . -type f -name .DS_Store -print0 | xargs -0 rm'
 
-############################################################
 ## put local customizations in ~/.bash_local
-############################################################
 
 if [ -e ~/.bash_local ] ; then
   . ~/.bash_local
