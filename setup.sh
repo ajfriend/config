@@ -42,4 +42,4 @@ make_link ${CONFIG_DIR}/screenrc ~/.screen
 mkdir -p ~/bin
 make_link ${SCRIPT_DIR}/tp.py ~/bin/tp
 make_link ${SCRIPT_DIR}/git_prompt.py ~/bin/git_prompt.py
-make_link ${SCRIPT_DIR}/load_anaconda.sh ~/bin/load_anaconda.sh
+make_link ${SCRIPT_DIR}/anaconda.sh ~/bin/anaconda
