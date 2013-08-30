@@ -33,6 +33,7 @@
 (load "settings/programming")
 (load "settings/dired-settings")
 (load "settings/python-setup")
+(load "settings/unfill")
 
 ;; Enable a backtrace when problems occur
 ;; (setq debug-on-error t)
