@@ -8,6 +8,9 @@
 #    export TERM='xterm-256color'
 #fi
 
+# for proper paging in ipython
+export LESS="-R"
+
 if [[ ! -n $EMACS ]]; then
   alias ls="ls --color=auto"
   # good for dark backgrounds
