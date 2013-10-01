@@ -5,4 +5,5 @@ emacs.d/external/*
 emacs.d/settings/custom.el
 emacs.d/.DS_Store
 emacs.d/eshell*
+emacs.d/session*
 \#*\#
