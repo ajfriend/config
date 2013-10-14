@@ -17,7 +17,7 @@
 (load "settings/font")
 ;;(load "settings/auctex")
 (load "settings/utf-8")
-(load "settings/org")
+(load "settings/org-settings")
 (load "settings/markdown-load")
 (load "settings/gui")
 (load "settings/tab")

@@ -36,3 +36,12 @@ then
   cd ${EXT_DIR}
   git clone git://jblevins.org/git/markdown-mode.git
 fi
+
+# get org-mode
+if [ ! -d ${EXT_DIR}/org-mode ]
+then
+  cd ${EXT_DIR}
+  wget http://orgmode.org/org-8.2.1.tar.gz
+  tar -xzf org-8.2.1.tar.gz
+  mv org-8.2.1 org-mode
+fi
