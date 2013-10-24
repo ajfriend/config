@@ -6,6 +6,7 @@
 
 ;; load c++ mode for cuda files
 (add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.cu_thrust\\'" . c++-mode))
 
 ;; Load CEDET
 ;; (when (system-type-is-gnu)

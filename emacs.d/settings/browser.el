@@ -9,5 +9,5 @@
 ;; for arch linux
 (when (system-type-is-gnu)
   (setq browse-url-browser-function (quote browse-url-generic))
-  (setq browse-url-generic-program "firefox")
+  (setq browse-url-generic-program "google-chrome")
 )
