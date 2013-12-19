@@ -21,43 +21,6 @@ conditionally_prefix_path /Applications/MATLAB_R2011b.app/bin
 conditionally_prefix_path ~/.local/bin
 conditionally_prefix_path ~/bin
 
-#PATH=.:./bin:${PATH}
-
-## Terminal behavior
-
-# Change the window title of X terminals
-case $TERM in
-  xterm*|rxvt|Eterm|eterm)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
-    ;;
-  screen)
-    PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
-    ;;
-esac
-
-# Show the git branch and dirty state in the prompt.
-if [ `which git_prompt.py 2> /dev/null` ]; then
-  function git_prompt {
-    git_prompt.py
-  }
-else
-  function git_prompt {
-    echo ""
-  }
-fi
-
-function ps1_exit_status {
-  exit_code=$?
-  if [[ $exit_code != 0 ]]; then
-    echo ""
-    echo "exit status of last command: $exit_code"
-  fi
-}
-
-if [ -n "$BASH" ]; then
-  export PS1='$(ps1_exit_status)\[\033[32m\]\n[\w] $(git_prompt)\n\[\033[31m\][\u@\h]\$ \[\033[00m\]'
-fi
-
 ## Optional shell behavior
 
 shopt -s cdspell

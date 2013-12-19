@@ -18,9 +18,13 @@ function make_link {
   ln -fs ${target_file} ${link_name}
 }
 
+# set up bin directory
+mkdir -p ~/bin
+
 # setup bash files
 make_link ${CONFIG_DIR}/bashrc.sh ~/.bashrc
 make_link ${CONFIG_DIR}/bash_profile.sh ~/.bash_profile
+make_link ${CONFIG_DIR}/bash_prompt.sh ~/bin/prompt
 if [ `uname` == 'Darwin' ]; then
   make_link ${CONFIG_DIR}/bash_local_mac.sh ~/.bash_local
 fi
@@ -39,7 +43,6 @@ make_link ${CONFIG_DIR}/ackrc ~/.ackrc
 make_link ${CONFIG_DIR}/screenrc ~/.screen
 
 # set up scripts
-mkdir -p ~/bin
 make_link ${SCRIPT_DIR}/tp.py ~/bin/tp
 make_link ${SCRIPT_DIR}/git_prompt.py ~/bin/git_prompt.py
 make_link ${SCRIPT_DIR}/anaconda.sh ~/bin/anaconda
