@@ -43,3 +43,8 @@ mkdir -p ~/bin
 make_link ${SCRIPT_DIR}/tp.py ~/bin/tp
 make_link ${SCRIPT_DIR}/git_prompt.py ~/bin/git_prompt.py
 make_link ${SCRIPT_DIR}/anaconda.sh ~/bin/anaconda
+
+# setup cuda
+if [ `uname` == 'Darwin' ]; then
+  make_link ${CONFIG_DIR}/cuda/cuda_mac.sh ~/bin/cuda
+fi
