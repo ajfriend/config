@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Nsight
+Exec=/usr/local/cuda/bin/nsight
+Icon=/usr/local/cuda/libnsight/icon.xpm
+Type=Application
+Categories=Development;
