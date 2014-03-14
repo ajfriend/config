@@ -51,3 +51,6 @@ make_link ${SCRIPT_DIR}/anaconda.sh ~/bin/anaconda
 if [ `uname` == 'Darwin' ]; then
   make_link ${CONFIG_DIR}/cuda/cuda_mac.sh ~/bin/cuda
 fi
+
+# setup matlab
+make_link ${CONFIG_DIR}/matlab/matlab.sh ~/bin/matlab-setup
