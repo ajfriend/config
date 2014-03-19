@@ -45,7 +45,8 @@ make_link ${CONFIG_DIR}/screenrc ~/.screen
 # set up scripts
 make_link ${SCRIPT_DIR}/tp.py ~/bin/tp
 make_link ${SCRIPT_DIR}/git_prompt.py ~/bin/git_prompt.py
-make_link ${SCRIPT_DIR}/anaconda.sh ~/bin/anaconda
+make_link ${CONFIG_DIR}/python/py2-conda.sh ~/bin/py2-conda
+make_link ${CONFIG_DIR}/python/py3-conda.sh ~/bin/py3-conda
 
 # setup cuda
 if [ `uname` == 'Darwin' ]; then
