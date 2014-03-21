@@ -47,6 +47,7 @@ make_link ${SCRIPT_DIR}/tp.py ~/bin/tp
 make_link ${SCRIPT_DIR}/git_prompt.py ~/bin/git_prompt.py
 make_link ${CONFIG_DIR}/python/py2.sh ~/bin/py2
 make_link ${CONFIG_DIR}/python/py3.sh ~/bin/py3
+make_link ${CONFIG_DIR}/python/nb3.sh ~/bin/nb3
 
 # setup cuda
 if [ `uname` == 'Darwin' ]; then
