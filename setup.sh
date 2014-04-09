@@ -28,12 +28,6 @@ mkdir -p ~/bin
 make_link ${BASH_DIR}/bashrc.sh ~/.bashrc
 make_link ${BASH_DIR}/bash_profile.sh ~/.bash_profile
 make_link ${BASH_DIR}/bash_prompt.sh ~/bin/prompt
-if [ `uname` == 'Darwin' ]; then
-  make_link ${BASH_DIR}/bash_local_mac.sh ~/.bash_local
-fi
-if [ -e /etc/centos-release ]; then
-  make_link ${BASH_DIR}/bash_local_centos.sh ~/.bash_local
-fi
 
 # setup emacs
 make_link ${CONFIG_DIR}/emacs.d ~/.emacs.d
