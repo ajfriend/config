@@ -25,9 +25,10 @@ function make_link {
 mkdir -p ~/bin
 
 # setup bash files
-make_link ${BASH_DIR}/bashrc.sh ~/.bashrc
-make_link ${BASH_DIR}/bash_profile.sh ~/.bash_profile
-make_link ${BASH_DIR}/bash_prompt.sh ~/bin/prompt
+echo "setting up bash"
+cd bash
+./configure.py
+cd ..
 
 # setup emacs
 make_link ${CONFIG_DIR}/emacs.d ~/.emacs.d
@@ -42,9 +43,9 @@ make_link ${CONFIG_DIR}/other/screenrc ~/.screen
 # set up scripts
 make_link ${SCRIPT_DIR}/tp.py ~/bin/tp
 make_link ${SCRIPT_DIR}/git_prompt.py ~/bin/git_prompt.py
-make_link ${PYTHON_DIR}/python/py2.sh ~/bin/py2
-make_link ${PYTHON_DIR}/python/py3.sh ~/bin/py3
-make_link ${PYTHON_DIR}/python/nb3.sh ~/bin/nb3
+make_link ${PYTHON_DIR}/py2.sh ~/bin/py2
+make_link ${PYTHON_DIR}/py3.sh ~/bin/py3
+make_link ${PYTHON_DIR}/nb3.sh ~/bin/nb3
 
 # setup cuda
 if [ `uname` == 'Darwin' ]; then
