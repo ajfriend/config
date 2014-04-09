@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 CONFIG_DIR=~/config
-SCRIPT_DIR=~/config/script
+SCRIPT_DIR=~/config/tools
+BASH_DIR=~/config/bash
+GIT_DIR=~/config/git-files
+PYTHON_DIR=~/config/python
 
 function conditionally_move_file {
   local old_file=$1
@@ -22,32 +25,32 @@ function make_link {
 mkdir -p ~/bin
 
 # setup bash files
-make_link ${CONFIG_DIR}/bashrc.sh ~/.bashrc
-make_link ${CONFIG_DIR}/bash_profile.sh ~/.bash_profile
-make_link ${CONFIG_DIR}/bash_prompt.sh ~/bin/prompt
+make_link ${BASH_DIR}/bashrc.sh ~/.bashrc
+make_link ${BASH_DIR}/bash_profile.sh ~/.bash_profile
+make_link ${BASH_DIR}/bash_prompt.sh ~/bin/prompt
 if [ `uname` == 'Darwin' ]; then
-  make_link ${CONFIG_DIR}/bash_local_mac.sh ~/.bash_local
+  make_link ${BASH_DIR}/bash_local_mac.sh ~/.bash_local
 fi
 if [ -e /etc/centos-release ]; then
-  make_link ${CONFIG_DIR}/bash_local_centos.sh ~/.bash_local
+  make_link ${BASH_DIR}/bash_local_centos.sh ~/.bash_local
 fi
 
 # setup emacs
 make_link ${CONFIG_DIR}/emacs.d ~/.emacs.d
 
 # setup git
-make_link ${CONFIG_DIR}/gitconfig ~/.gitconfig
+make_link ${GIT_DIR}/gitconfig ~/.gitconfig
 
 # setup other tools
-make_link ${CONFIG_DIR}/ackrc ~/.ackrc
-make_link ${CONFIG_DIR}/screenrc ~/.screen
+make_link ${CONFIG_DIR}/other/ackrc ~/.ackrc
+make_link ${CONFIG_DIR}/other/screenrc ~/.screen
 
 # set up scripts
 make_link ${SCRIPT_DIR}/tp.py ~/bin/tp
 make_link ${SCRIPT_DIR}/git_prompt.py ~/bin/git_prompt.py
-make_link ${CONFIG_DIR}/python/py2.sh ~/bin/py2
-make_link ${CONFIG_DIR}/python/py3.sh ~/bin/py3
-make_link ${CONFIG_DIR}/python/nb3.sh ~/bin/nb3
+make_link ${PYTHON_DIR}/python/py2.sh ~/bin/py2
+make_link ${PYTHON_DIR}/python/py3.sh ~/bin/py3
+make_link ${PYTHON_DIR}/python/nb3.sh ~/bin/nb3
 
 # setup cuda
 if [ `uname` == 'Darwin' ]; then
