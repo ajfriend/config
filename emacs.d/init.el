@@ -7,6 +7,11 @@
 (setq custom-file "~/.emacs.d/settings/custom.el")
 (load custom-file 'noerror)
 
+;; package manager settings
+(require 'package)
+(add-to-list 'package-archives
+  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
 ;; load imports
 (load "import/light-symbol")
 
@@ -34,6 +39,7 @@
 (load "settings/dired-settings")
 (load "settings/python-setup")
 (load "settings/unfill")
+(load "settings/keyboard.el")
 
 ;; Enable a backtrace when problems occur
 ;; (setq debug-on-error t)
