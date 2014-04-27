@@ -15,7 +15,7 @@ function conditionally_prefix_path {
 }
 
 #conditionally_prefix_path /usr/local/MATLAB/R2011b/bin
-#conditionally_prefix_path /Applications/MATLAB_R2011b.app/bin
+conditionally_prefix_path /Applications/MATLAB_R2014a.app/bin
 #conditionally_prefix_path ~/.cabal/bin
 #conditionally_prefix_path /usr/local/cuda-5.5/bin
 conditionally_prefix_path ~/.local/bin
