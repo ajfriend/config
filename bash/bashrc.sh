@@ -41,28 +41,18 @@ export HISTCONTROL=erasedups
 # increase the default size from only 1,000 items
 export HISTSIZE=10000
 
-## List
-
-# if [[ `uname` == 'Darwin' && ! -n $EMACS  ]]; then
-#   alias ls="ls -G"
-#   # good for dark backgrounds
-#   export LSCOLORS=gxfxcxdxbxegedabagacad
-# elif [[ ! -n $EMACS ]]; then
-#   alias ls="ls --color=auto"
-#   # good for dark backgrounds
-#   export LS_COLORS='no=00:fi=00:di=00;36:ln=00;35:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=00;31:'
-#   # For LS_COLORS template: $ dircolors /etc/DIR_COLORS
-# fi
+## list aliases
 
 #alias l="ls"
 alias ll="ls -lh"
 alias la="ls -alh"
 #alias lal="ls -alh"
 
-## OS X .DS_Store files
+## open alias
 
-# Get rid of those pesky .DS_Store files recursively
-alias dstore-clean='find . -type f -name .DS_Store -print0 | xargs -0 rm'
+if [ -e /etc/redhat-release ]; then
+  alias open="gnome-open"
+fi
 
 ## put local customizations in ~/.bash_local
 
