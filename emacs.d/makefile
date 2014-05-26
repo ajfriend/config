@@ -4,7 +4,8 @@ all: \
   external/ack-el/.made \
   external/markdown-mode/.made \
   external/org-mode/.made \
-	external/julia-mode/julia-mode.el
+	external/julia-mode/julia-mode.el \
+	external/emacs-color-theme-solarized/.made
 
 external/magit/.made:
 	mkdir -p external
@@ -25,7 +26,7 @@ external/markdown-mode/.made:
 external/org-mode/.made:
 	mkdir -p external
 	mkdir -p download
-	wget -P download http://orgmode.org/org-8.2.1.tar.gz
+	wget -P download/ http://orgmode.org/org-8.2.1.tar.gz
 	tar -xzvf download/org-8.2.1.tar.gz -C external/
 	mv external/org-8.2.1 external/org-mode
 	touch external/org-mode/.made
@@ -33,6 +34,15 @@ external/org-mode/.made:
 external/julia-mode/julia-mode.el:
 	mkdir -p external/julia-mode
 	wget -P external/julia-mode https://raw.githubusercontent.com/JuliaLang/julia/master/contrib/julia-mode.el
+
+external/emacs-color-theme-solarized/.made:
+	mkdir -p download
+	wget -P download/ https://github.com/sellout/emacs-color-theme-solarized/archive/master.zip
+	mv download/master.zip download/emacs-color-theme-solarized.zip
+	mkdir -p external
+	unzip download/emacs-color-theme-solarized.zip -d external
+	mv external/emacs-color-theme-solarized-master external/emacs-color-theme-solarized
+	touch $@
 
 .PHONY: clean
 clean:
