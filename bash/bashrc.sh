@@ -18,6 +18,7 @@ conditionally_prefix_path /Applications/MATLAB_R2014a.app/bin
 conditionally_prefix_path /opt/matlab/R2013b/bin
 conditionally_prefix_path ~/.local/bin
 conditionally_prefix_path ~/bin
+conditionally_prefix_path ~/julia
 
 ## Optional shell behavior
 
