@@ -6,12 +6,6 @@ all: \
 	external/julia-mode/julia-mode.el \
 	external/emacs-color-theme-solarized/.made
 
-external/magit/.made:
-	mkdir -p external
-	cd external && git clone git://github.com/magit/magit.git
-	cd external/magit && git checkout 1.2.0
-	touch external/magit/.made
-
 external/ack-el/.made:
 	mkdir -p external
 	cd external && git clone git://github.com/leoliu/ack-el.git

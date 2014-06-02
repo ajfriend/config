@@ -32,7 +32,6 @@
 (load "settings/cmake")
 (load "settings/color-theme")
 (load "settings/sr-speedbar-load")
-(load "settings/magit-load")
 (load "settings/ack-load")
 (load "settings/programming")
 (load "settings/dired-settings")
