@@ -4,13 +4,12 @@
 ;; add import directory to load path
 (add-to-list 'load-path "~/.emacs.d/import")
 
-(setq custom-file "~/.emacs.d/settings/custom.el")
+;; custom-file settings
+(setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)
 
 ;; package manager settings
-(require 'package)
-(add-to-list 'package-archives
-  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(load "settings/packages.el")
 
 ;; load imports
 (load "import/light-symbol")

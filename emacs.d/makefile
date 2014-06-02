@@ -3,7 +3,6 @@ all: \
   external/magit/.made \
   external/ack-el/.made \
   external/markdown-mode/.made \
-  external/org-mode/.made \
 	external/julia-mode/julia-mode.el \
 	external/emacs-color-theme-solarized/.made
 
@@ -22,14 +21,6 @@ external/markdown-mode/.made:
 	mkdir -p external
 	cd external && git clone git://jblevins.org/git/markdown-mode.git
 	touch external/markdown-mode/.made
-
-external/org-mode/.made:
-	mkdir -p external
-	mkdir -p download
-	wget -P download/ http://orgmode.org/org-8.2.1.tar.gz
-	tar -xzvf download/org-8.2.1.tar.gz -C external/
-	mv external/org-8.2.1 external/org-mode
-	touch external/org-mode/.made
 
 external/julia-mode/julia-mode.el:
 	mkdir -p external/julia-mode
