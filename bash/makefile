@@ -14,12 +14,14 @@ install: backup/.made
 	mkdir -p ~/bin
 	ln -fs $(PWD)/bash_prompt.sh ~/bin/prompt
 
-.PHONY: clean
-clean:
-	$(RM) -r backup
-
-.PHONY: clean_links
-clean_links:
+.PHONY: uninstall
+uninstall:
 	if [[ -h ~/.bashrc ]]; then rm ~/.bashrc; fi
 	if [[ -h ~/.bash_profile ]]; then rm ~/.bash_profile; fi
 	if [[ -h ~/bin/prompt ]]; then rm ~/bin/prompt; fi
+
+.PHONY: restore
+restore:
+	if [[ -f backup/.bashrc ]]; then $(RM) ~/.bashrc; mv backup/.bashrc ~/.bashrc; fi
+	if [[ -f backup/.bash_profile ]]; then $(RM) ~/.bashrc; mv backup/.bash_profile ~/.bash_profile; fi
+	if [[ -f backup/.profile ]]; then $(RM) ~/.bashrc; mv backup/.profile ~/.profile; fi
