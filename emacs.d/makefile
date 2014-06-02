@@ -11,11 +11,6 @@ external/ack-el/.made:
 	cd external && git clone git://github.com/leoliu/ack-el.git
 	touch external/ack-el/.made
 
-external/markdown-mode/.made:
-	mkdir -p external
-	cd external && git clone git://jblevins.org/git/markdown-mode.git
-	touch external/markdown-mode/.made
-
 external/julia-mode/julia-mode.el:
 	mkdir -p external/julia-mode
 	wget -P external/julia-mode https://raw.githubusercontent.com/JuliaLang/julia/master/contrib/julia-mode.el
