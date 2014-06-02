@@ -1,10 +1,5 @@
+# editor temporary files
+*~
+
+# OSX metadata
 *.DS_Store
-emacs.d/backups/*
-emacs.d/auto-save-list/*
-emacs.d/elpa/*
-emacs.d/external/*
-emacs.d/settings/custom.el
-emacs.d/.DS_Store
-emacs.d/eshell*
-emacs.d/session*
-\#*\#

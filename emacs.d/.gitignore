@@ -1,3 +1,9 @@
-# download emacs file
+backups/*
 download/*
+auto-save-list/*
+elpa/*
 external/*
+custom.el
+eshell*
+session*
+\#*\#
