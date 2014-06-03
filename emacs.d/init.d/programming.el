@@ -11,5 +11,7 @@
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 
 ;; load julia-mode
-(add-to-list 'load-path "~/.emacs.d/external/julia-mode")
-(require 'julia-mode)
+(when (file-directory-p "~/julia/contrib")
+  (add-to-list 'load-path "~/julia/contrib")
+  (require 'julia-mode)
+)

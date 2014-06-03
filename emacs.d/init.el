@@ -32,7 +32,6 @@
 (load "init.d/cmake")
 (load "init.d/color-theme")
 (load "init.d/sr-speedbar-load")
-(load "init.d/ack-load")
 (load "init.d/programming")
 (load "init.d/dired-settings")
 (load "init.d/python-setup")
