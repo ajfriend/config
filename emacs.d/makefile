@@ -1,15 +1,8 @@
 .PHONY: all
 all: \
   external/magit/.made \
-  external/ack-el/.made \
-  external/markdown-mode/.made \
 	external/julia-mode/julia-mode.el \
 	external/emacs-color-theme-solarized/.made
-
-external/ack-el/.made:
-	mkdir -p external
-	cd external && git clone git://github.com/leoliu/ack-el.git
-	touch external/ack-el/.made
 
 external/julia-mode/julia-mode.el:
 	mkdir -p external/julia-mode

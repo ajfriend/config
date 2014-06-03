@@ -19,6 +19,7 @@
 (unless (package-installed-p 'org-plus-contrib) (package-install 'org-plus-contrib))
 (unless (package-installed-p 'magit) (package-install 'magit))
 (unless (package-installed-p 'markdown-mode) (package-install 'markdown-mode))
+(unless (package-installed-p 'ack) (package-install 'ack))
 
 ;; initialize and install packages
 ;;(package-initialize)
