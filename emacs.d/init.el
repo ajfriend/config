@@ -8,7 +8,7 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)
 
-;; package manager settings
+;; package manager initialization
 (load "init.d/packages.el")
 
 ;; load imports

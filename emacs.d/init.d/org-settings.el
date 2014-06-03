@@ -1,7 +1,4 @@
 ;; orgmode
-;;(add-to-list 'load-path "~/.emacs.d/external/org-mode/lisp")
-;;(add-to-list 'load-path "~/.emacs.d/external/org-mode/contrib/lisp")
-;;(require 'org-install)
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
 ;; settings
