@@ -12,7 +12,7 @@ install: backup/.made
 	$(RM) ~/.emacs
 	$(RM) ~/.emacs.el
 	$(RM) -r ~/.emacs.d
-	ln -fs $(PWD) ~/.emacs.d
+	ln -fs ${CURDIR} ~/.emacs.d
 
 .PHONY: uninstall
 uninstall:

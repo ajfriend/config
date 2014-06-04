@@ -8,8 +8,8 @@ backup/.made:
 
 .PHONY: install
 install: backup/.made
-	ln -fs $(PWD)/gitconfig ~/.gitconfig
-	ln -fs $(PWD)/gitignore ~/.gitignore
+	ln -fs ${CURDIR}/gitconfig ~/.gitconfig
+	ln -fs ${CURDIR}/gitignore ~/.gitignore
 
 .PHONY: uninstall
 uninstall:

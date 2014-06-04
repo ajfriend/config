@@ -9,10 +9,10 @@ backup/.made:
 
 .PHONY: install
 install: backup/.made
-	ln -fs $(PWD)/bashrc.sh ~/.bashrc
-	ln -fs $(PWD)/bash_profile.sh ~/.bash_profile
+	ln -fs ${CURDIR}/bashrc.sh ~/.bashrc
+	ln -fs ${CURDIR}/bash_profile.sh ~/.bash_profile
 	mkdir -p ~/bin
-	ln -fs $(PWD)/bash_prompt.sh ~/bin/prompt
+	ln -fs ${CURDIR}/bash_prompt.sh ~/bin/prompt
 
 .PHONY: uninstall
 uninstall:

@@ -3,9 +3,9 @@
 .PHONY: install
 install:
 	$(RM) ~/.screenrc
-	ln -s $(PWD)/screenrc ~/.screenrc
+	ln -s ${CURDIR}/screenrc ~/.screenrc
 	$(RM) ~/.ackrc
-	ln -s $(PWD)/ackrc ~/.ackrc
+	ln -s ${CURDIR}/ackrc ~/.ackrc
 
 .PHONY: uninstall
 uninstall:
