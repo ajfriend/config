@@ -3,7 +3,7 @@
   email = nwh@stanford.edu
 
 [core]
-  excludesfile = /home/nwh/Dropbox/config/gitignore
+  excludesfile = ~/.gitignore
 
 [color]
   diff = auto
