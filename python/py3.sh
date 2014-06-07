@@ -8,9 +8,9 @@
 # ~/bin is on the shell PATH.
 #
 
-if [ -d ~/miniconda3/bin ]
+if [[ -d ~/anacnoda3/bin ]]
 then
-  export PATH=~/miniconda3/bin:${PATH}
+  export PATH=~/anaconda3/bin:${PATH}
 else
-  echo "~/miniconda3/bin does not exist."
+  echo "~/anaconda3/bin does not exist."
 fi

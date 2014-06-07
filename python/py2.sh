@@ -8,7 +8,7 @@
 # ~/bin is on the shell PATH.
 #
 
-if [ -d ~/anaconda/bin ]
+if [[ -d ~/anaconda/bin ]]
 then
   export PATH=~/anaconda/bin:${PATH}
 else
