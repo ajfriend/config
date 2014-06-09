@@ -7,6 +7,7 @@ install:
 	make -C git-files install
 	make -C other install
 	make -C tools install
+	make -C python install
 
 .PHONY: uninstall
 uninstall:
@@ -15,3 +16,4 @@ uninstall:
 	make -C git-files uninstall
 	make -C other uninstall
 	make -C tools uninstall
+	make -C python uninstall
