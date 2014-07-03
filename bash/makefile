@@ -23,5 +23,5 @@ uninstall:
 .PHONY: restore
 restore:
 	if [[ -f backup/.bashrc ]]; then $(RM) ~/.bashrc; mv backup/.bashrc ~/.bashrc; fi
-	if [[ -f backup/.bash_profile ]]; then $(RM) ~/.bashrc; mv backup/.bash_profile ~/.bash_profile; fi
-	if [[ -f backup/.profile ]]; then $(RM) ~/.bashrc; mv backup/.profile ~/.profile; fi
+	if [[ -f backup/.bash_profile ]]; then $(RM) ~/.bash_profile; mv backup/.bash_profile ~/.bash_profile; fi
+	if [[ -f backup/.profile ]]; then $(RM) ~/.profile; mv backup/.profile ~/.profile; fi
